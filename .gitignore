@@ -22,5 +22,6 @@ pnpm-debug.log*
 
 .vercel
 
-/src/content/posts/
-/public/images
+src/content/posts/
+src/assets/
+public/images
