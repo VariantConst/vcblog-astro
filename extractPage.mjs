@@ -41,11 +41,11 @@ async function createFrontMatter(properties, slug) {
   let frontMatter = [
     '---',
     `title: ${properties.title.title[0].plain_text}`,
-    `published: ${new Date(properties.published.date.start).toISOString().split('T')[0]}`,
+    `published: ${new Date(properties.date.date.start).toISOString().split('T')[0]}`,
     'description: ' + (properties.description.rich_text[0]?.plain_text || ''),
     'category: ' + properties.category.select.name,
     'tags: [' + properties.tags.multi_select.map(tag => tag.name).join(', ') + ']',
-    'draft: ' + properties.draft.checkbox,
+    'draft: ' + !properties.published.checkbox,
     'slug: ' + properties.slug.rich_text[0]?.plain_text,
   ];
 
